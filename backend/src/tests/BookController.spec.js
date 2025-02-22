@@ -11,7 +11,6 @@ describe('Create Book', () => {
       body: {
         title: 'Livro Teste',
         author: 'Autor Teste',
-        price: 130.99,
         quantity: 3,
         genre: 'Ficção',
         description: 'Descrição Teste',
@@ -74,7 +73,6 @@ describe('Get All Books', () => {
       {
         title: 'Livro Teste1',
         author: 'Autor Teste1',
-        price: 130.99,
         quantity: 3,
         genre: 'Ficção',
         description: 'Descrição Teste1',
@@ -84,7 +82,6 @@ describe('Get All Books', () => {
       {
         title: 'Livro Teste2',
         author: 'Autor Teste2',
-        price: 30.99,
         quantity: 2,
         genre: 'Ficção',
         description: 'Descrição Teste2',
@@ -123,7 +120,6 @@ describe('Get Book By Id', () => {
         id: 1,
         title: 'Livro Teste1',
         author: 'Autor Teste1',
-        price: 130.99,
         quantity: 3,
         genre: 'Ficção',
         description: 'Descrição Teste1',
@@ -184,7 +180,6 @@ describe('Update Book', () => {
       id: 1,
       title: 'Livro Teste1',
       author: 'Autor Teste1',
-      price: 130.99,
       quantity: 3,
       genre: 'Ficção',
       description: 'Descrição Teste1',
@@ -251,7 +246,6 @@ describe('Delete Book', () => {
         id: 1,
         title: 'Livro Teste1',
         author: 'Autor Teste1',
-        price: 130.99,
         quantity: 3,
         genre: 'Ficção',
         description: 'Descrição Teste1',

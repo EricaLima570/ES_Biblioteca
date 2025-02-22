@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://i.pinimg.com/736x/42/d0/80/42d0802cf46f36460e05b88d535f649b.jpg'); 
+    background-image: url('fundo.jpeg'); 
     background-size: cover;
     background-position: center; 
     display: flex;
@@ -58,6 +58,8 @@ body {
     margin-top: auto; 
     width: 100%;
     height: auto; 
+    position:absolute ;
+    bottom: 0px;
 }
 
 .footer-content {

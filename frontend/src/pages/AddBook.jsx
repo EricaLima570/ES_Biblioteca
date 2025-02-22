@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from '../services/axios';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './AddBook.css'; // Certifique-se de criar este arquivo CSS
+import './AddBook.css'; 
 
 const AddBook = () => {
     const [book, setBook] = useState({});
@@ -23,15 +23,19 @@ const AddBook = () => {
 
         const img = "https://png.pngtree.com/background/20221027/original/pngtree-paper-books-seamless-pattern-picture-image_1925120.jpg";
 
-        let { title, author, price, quantity, genre, description, published_year, image_url } = book;
+        let { title, author, quantity, genre, description, published_year, image_url } = book;
 
+        if (!image_url) {
+            image_url = img;
+        }
+        
         if (!checkURL(image_url)) {
             image_url = img;
         }
 
         try {
-            await axios.post('/book', { title, author, price, quantity, genre, description, published_year, image_url });
-            navigate('/'); // Redireciona para a página inicial após cadastrar o livro
+            await axios.post('/book', { title, author, quantity, genre, description, published_year, image_url });
+            navigate('/'); 
         } catch (error) {
             console.error('Erro ao adicionar livro:', error);
         }
@@ -48,10 +52,6 @@ const AddBook = () => {
                 <div className="form-group">
                     <label>AUTOR</label>
                     <input type="text" className="form-control" name="author" value={book.author} onChange={handleInputChange} required />
-                </div>
-                <div className="form-group">
-                    <label>PREÇO</label>
-                    <input type="number" className="form-control" name="price" value={book.price} onChange={handleInputChange} required />
                 </div>
                 <div className="form-group">
                     <label>QUANTIDADE</label>

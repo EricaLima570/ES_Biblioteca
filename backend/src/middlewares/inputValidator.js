@@ -2,7 +2,6 @@ import Joi from "joi";
 
 const bookSchema = Joi.object({
     title: Joi.string().min(3).required(),
-    price: Joi.number().positive().required(),
     quantity: Joi.number().integer().min(0).required(),
     author: Joi.string().min(3).required(),
     genre: Joi.string().min(3).optional(),

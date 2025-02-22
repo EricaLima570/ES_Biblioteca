@@ -13,19 +13,19 @@ export const getBookByIdService = async (id) => {
 };
 
 // Criar um livro com a URL da imagem
-export const createBookService = async (title, author, price, quantity, genre, description, publishedYear, image) => {
+export const createBookService = async (title, author, quantity, genre, description, publishedYear, image) => {
     const result = await pool.query(
-        "INSERT INTO books (title, author, price, quantity, genre, description, published_year, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
-        [title, author, price, quantity, genre, description, publishedYear, image]
+        "INSERT INTO books (title, author,quantity, genre, description, published_year, image_url) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+        [title, author, quantity, genre, description, publishedYear, image]
     );
     return result.rows[0];
 };
 
 // Atualizar um livro (mantendo a URL da imagem)
-export const updateBookService = async (id, title, author, price, quantity, genre, description, publishedYear, imageUrl) => {
+export const updateBookService = async (id, title, author, quantity, genre, description, publishedYear, imageUrl) => {
     const result = await pool.query(
-        "UPDATE books SET title=$1, author=$2, price=$3, quantity=$4, genre=$5, description=$6, published_year=$7, image_url=$8 WHERE id=$9 RETURNING *",
-        [title, author, price, quantity, genre, description, publishedYear, imageUrl, id] // Apenas URL da imagem
+        "UPDATE books SET title=$1, author=$2, quantity=$3, genre=$4, description=$5, published_year=$6, image_url=$7 WHERE id=$8 RETURNING *",
+        [title, author, quantity, genre, description, publishedYear, imageUrl, id] // Apenas URL da imagem
     );
     return result.rows[0];
 };

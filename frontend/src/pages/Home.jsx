@@ -61,7 +61,7 @@ const Home = () => {
             </div>
             <footer className="footer">
                 <div className="footer-content">
-                    <p>&copy; {new Date().getFullYear()} Capacita Brasil/C-Jovem</p>
+                    <p>&copy; {new Date().getFullYear()} IFCE-Campus Iguatu</p>
                     <p>Todos os direitos reservados.</p>
                 </div>
             </footer>

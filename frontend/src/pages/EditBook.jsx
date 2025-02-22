@@ -37,14 +37,14 @@ const EditBook = () => {
 
         const img = "https://png.pngtree.com/background/20221027/original/pngtree-paper-books-seamless-pattern-picture-image_1925120.jpg";
 
-        let { title, author, price, quantity, genre, description, published_year, image_url } = book;
+        let { title, author , quantity, genre, description, published_year, image_url } = book;
 
         if (!checkURL(image_url)) {
             image_url = img;
         }
 
         try {
-            await axios.put(`/book/${id}`, { title, author, price, quantity, genre, description, published_year, image_url });
+            await axios.put(`/book/${id}`, { title, author, quantity, genre, description, published_year, image_url });
             navigate('/'); // Redireciona para a página inicial após editar o livro
         } catch (error) {
             console.error('Erro ao atualizar livro:', error);
@@ -62,10 +62,6 @@ const EditBook = () => {
                 <div className="form-group">
                     <label>Autor</label>
                     <input type="text" className="form-control" name="author" value={book.author} onChange={handleInputChange} required />
-                </div>
-                <div className="form-group">
-                    <label>Preço</label>
-                    <input type="number" className="form-control" name="price" value={book.price} onChange={handleInputChange} required />
                 </div>
                 <div className="form-group">
                     <label>Quantidade</label>

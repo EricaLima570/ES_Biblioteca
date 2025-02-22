@@ -6,9 +6,9 @@ const handleResponse = (res, status, message, data = null) => {
 
 // Criar um novo livro (agora aceitando image_url)
 export const createBook = async (req, res, next) => {
-    const { title, author, price, quantity, genre, description, published_year, image_url } = req.body;
+    const { title, author, quantity, genre, description, published_year, image_url } = req.body;
     try {
-        const newBook = await createBookService(title, author, price, quantity, genre, description, published_year, image_url);
+        const newBook = await createBookService(title, author,  quantity, genre, description, published_year, image_url);
         handleResponse(res, 201, "Livro criado com sucesso", newBook);
     } catch (err) {
         next(err);
