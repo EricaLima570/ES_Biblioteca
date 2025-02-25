@@ -1,11 +1,24 @@
 body {
-    background-image: url('fundo.jpeg'); 
+    background-image: url('books.jpg');
     background-size: cover;
-    background-position: center; 
+    background-position: center;
+    background-color: #000000; /* Fundo preto */
+    color: #ffffff; /* Texto branco */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0; /* Remove as margens padrão */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Adiciona uma fonte genérica para melhorar a legibilidade */
+}
+.titulo-inclinado {
+    font-style: italic; /* Aplica o itálico */
+    transform: skewX(-5deg); /* Inclina as letras para a direita */
+    display: inline-block; /* Garante que o transform funcione corretamente */
+    font-family: 'Brush Script MT, Brush Script Std'; /* Usa uma fonte serifada para um estilo mais elegante (opcional) */
+    font-size: 5 rem; /* Aumenta o tamanho da fonte (opcional) */
+    color: #ffffff; /* Cor do texto (ajuste conforme necessário) */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove paddings padrão */
 }
 
 .header {
@@ -14,52 +27,61 @@ body {
     align-items: center;
     padding: 1rem;
     background-color: #000000; /* Preto */
-    color: white;
+    color: #ffffff; /* Texto branco */
+    border-bottom: 1px solid #ffffff; /* Adiciona uma borda branca para separar o header */
 }
 
 .header-left h1 {
     margin: 0;
+    font-size: 3.2rem; /* Ajusta o tamanho do título */
 }
 
 .header-right .btn {
     margin: 0;
+    background-color: #ffffff; /* Botões brancos */
+    color: #000000; /* Texto preto */
+    border: 1px solid #ffffff; /* Borda branca */
 }
 
 .main-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    flex-grow: 1; /* Faz o conteúdo principal ocupar o espaço restante */
+    padding: 2rem; /* Aumenta o espaçamento interno */
+   /* background-color: rgba(0, 0, 0, 0.8); /* Fundo preto com transparência */
 }
 
 .card {
-    border: 2px solid #007bff; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ffffff; /* Borda branca */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra branca */
     transition: 0.3s;
+    background-color: #000000; /* Fundo preto */
+    color: #ffffff; /* Texto branco */
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.3); /* Sombra branca mais intensa no hover */
     transform: scale(1.05);
 }
 
 .card-img-top {
     width: 100%;
     height: 150px;
-    object-fit: contain; 
-    background-color: #e0f7fa; 
-    border-bottom: 2px solid #007bff;
+    object-fit: contain;
+    background-color: #000000; /* Fundo preto */
+    border-bottom: 2px solid #ffffff; /* Borda branca */
 }
 
 .footer {
     text-align: center;
     padding: 1rem;
     background-color: #000000; /* Preto */
-    color: white;
-    margin-top: auto; 
+    color: #ffffff; /* Texto branco */
     width: 100%;
-    height: auto; 
-    position:absolute ;
-    bottom: 0px;
+    position: relative; /* Alterado de fixed para relative */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-top: auto; /* Garante que o footer fique no final */
+    border-top: 1px solid #ffffff; /* Adiciona uma borda branca para separar o footer */
 }
 
 .footer-content {
@@ -70,17 +92,37 @@ body {
 }
 
 .btn-primary {
-    background-color: #8ddfff;
-    border-color: #0066ff; 
-    color: black; 
+    background-color: #ffffff; /* Botão branco */
+    border-color: #ffffff; /* Borda branca */
+    color: #000000; /* Texto preto */
 }
 
 .btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: #ffffff; /* Cor personalizada para o botão de warning */
+    border-color: #000000; /* Borda preta */
+    color: #000000; /* Texto preto */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Adiciona transição suave */
+}
+
+.btn-warning:hover {
+    background-color: #ffffff; /* Mantém a mesma cor no hover */
+    border-color: #000000; /* Mantém a borda preta no hover */
+    color: #000000; /* Mantém o texto preto no hover */
+    transform: translateY(-5px); /* Move o botão para cima */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra para dar profundidade */
 }
 
 .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #7e7e7e; /* Cor personalizada para o botão de danger */
+    border-color: #000000; /* Borda preta */
+    color: #ffffff; /* Texto branco */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Adiciona transição suave */
+}
+
+.btn-danger:hover {
+    background-color: #5a5959; /* Mantém a mesma cor no hover */
+    border-color: #000000; /* Mantém a borda preta no hover */
+    color: #ffffff; /* Mantém o texto branco no hover */
+    transform: translateY(-5px); /* Move o botão para cima */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra para dar profundidade */
 }

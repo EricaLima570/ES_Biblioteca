@@ -38,9 +38,9 @@ export const getBookById = async (req, res, next) => {
 
 // Atualizar um livro (agora aceitando image_url)
 export const updateBook = async (req, res, next) => {
-    const { title, author, price, quantity, genre, description, published_year, image_url } = req.body;
+    const { title, author, quantity, genre, description, published_year, image_url } = req.body;
     try {
-        const updatedBook = await updateBookService(req.params.id, title, author, price, quantity, genre, description, published_year, image_url);
+        const updatedBook = await updateBookService(req.params.id, title, author, quantity, genre, description, published_year, image_url);
         if (!updatedBook) return handleResponse(res, 404, "Livro não encontrado");
         handleResponse(res, 200, "Livro atualizado com sucesso", updatedBook);
     } catch (err) {

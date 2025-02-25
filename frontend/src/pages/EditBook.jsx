@@ -6,7 +6,30 @@ import './EditBook.css'; // Certifique-se de criar este arquivo CSS
 
 const EditBook = () => {
     const { id } = useParams();
-    const [book, setBook] = useState({});
+    
+    const initialBookState ={
+            title: '',
+            quantity: 1,
+            author: '',
+            genre: '',
+            description: '',
+            published_year: 1900,
+            image_url: ''
+        };
+    
+        const [book, setBook] = useState(() => {
+            const saveData = localStorage.getItem('bookForm');
+    
+            if (saveData) {
+                return JSON.parse(saveData);
+            }
+    
+            return initialBookState;
+        });
+    
+        useEffect(() => {
+            localStorage.setItem('bookForm', JSON.stringify(book));
+        }, [book]);
 
     const navigate = useNavigate();
 

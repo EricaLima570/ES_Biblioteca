@@ -8,7 +8,6 @@ const bookSchema = Joi.object({
     description: Joi.string().min(3).required(),
     published_year: Joi.number().integer().min(0).required(),
     image_url: Joi.string().uri().required()
-
 });
 
 const validateBook = (req, res, next) => {

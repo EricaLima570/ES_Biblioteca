@@ -8,7 +8,7 @@ const createBookTable = async () => {
             quantity INT NOT NULL,
             author VARCHAR(255) NOT NULL,
             genre VARCHAR(100),
-            description VARCHAR(255) NOT NULL,
+            description TEXT NOT NULL,
             published_year INT,
             created_at TIMESTAMP DEFAULT NOW(),
             image_url TEXT

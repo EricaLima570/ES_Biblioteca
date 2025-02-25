@@ -1,11 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from '../services/axios';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AddBook.css'; 
 
 const AddBook = () => {
-    const [book, setBook] = useState({});
+    const initialBookState ={
+        title: '',
+        quantity: 1,
+        author: '',
+        genre: '',
+        description: '',
+        published_year: 1900,
+        image_url: ''
+    };
+
+    const [book, setBook] = useState(() => {
+        const saveData = localStorage.getItem('bookForm');
+
+        if (saveData) {
+            return JSON.parse(saveData);
+        }
+
+        return initialBookState;
+    });
+
+    useEffect(() => {
+        localStorage.setItem('bookForm', JSON.stringify(book));
+    }, [book]);
 
     const navigate = useNavigate();
 
@@ -35,7 +57,11 @@ const AddBook = () => {
 
         try {
             await axios.post('/book', { title, author, quantity, genre, description, published_year, image_url });
-            navigate('/'); 
+
+            setBook(initialBookState);
+            localStorage.removeItem('bookForm');
+
+            navigate('/');
         } catch (error) {
             console.error('Erro ao adicionar livro:', error);
         }
@@ -48,6 +74,7 @@ const AddBook = () => {
                 <div className="form-group">
                     <label>TÌTULO</label>
                     <input type="text" className="form-control" name="title" value={book.title} onChange={handleInputChange} required />
+                    
                 </div>
                 <div className="form-group">
                     <label>AUTOR</label>

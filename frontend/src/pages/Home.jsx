@@ -32,9 +32,9 @@ const Home = () => {
     return (
         <div className="app">
             <header className="header">
-                <div className="header-left">
-                    <h1>Gerenciador de livros</h1>
-                </div>
+            <div className="header-left">
+                 <h1 className="titulo-inclinado">Gerenciador de Livros</h1>
+            </div>
                 <div className="header-right">
                     <Link to="/add" className="btn btn-primary">Cadastrar Novo Livro</Link>
                 </div>
